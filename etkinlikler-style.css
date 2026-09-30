@@ -1,0 +1,124 @@
+/* Yiğit Özdemir — 2416501838 */
+:root {
+  --no: 2416501838;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "system-ui", sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #111a2e; /* Dış arka plan koyu lacivert */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Ana Beyaz/Açık Yeşil Kapsayıcı Kart */
+.kapsayici-kart {
+  background-color: var(--renk-zemin);
+  width: 100%;
+  max-width: 650px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Yeşil Üst Header */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 1.2rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Bölümü */
+main {
+  padding: 1.5rem;
+}
+
+main h2 {
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 1.2rem;
+}
+
+/* Kartların 3 Sütunlu Grid Düzeni */
+.etkinlikler-izgara {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 eşit sütun */
+  gap: 1rem;
+}
+
+/* Beyaz Kart Tasarımı */
+.etkinlik-karti {
+  background-color: #ffffff;
+  border: 1px solid #e0e5e0;
+  border-radius: var(--kose);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+}
+
+.etkinlik-karti h3 {
+  font-size: 1.05rem;
+  color: #111;
+  line-height: 1.2;
+}
+
+.etkinlik-karti p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.detay-link {
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: auto; /* Bağlantıyı kartın en altına iter */
+  padding-top: 0.4rem;
+}
+
+.detay-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobil Uyum: Görsel altındaki nota göre telefonda tek sütuna düşer */
+@media (max-width: 580px) {
+  .etkinlikler-izgara {
+    grid-template-columns: 1fr;
+  }
+}

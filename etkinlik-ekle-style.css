@@ -1,0 +1,131 @@
+/* Yiğit Özdemir — 2416501838 */
+:root {
+  --no: 2416501838;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "system-ui", sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #111a2e; /* Koyu lacivert dış arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Kapsayıcı Kart */
+.kapsayici-kart {
+  background-color: var(--renk-zemin);
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Yeşil Header */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 1.2rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main / Form Bölümü */
+main {
+  padding: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Label Üstte Duruşu */
+label {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+/* Ortak Input / Select / Textarea Stilleri */
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #b2c2b2;
+  border-radius: var(--kose);
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--renk-ana);
+}
+
+/* Hatalı Kırmızı Alan Stili (Görsel altındaki mesaja uygun) */
+.hatali-giris {
+  border: 1px solid #d93838 !important;
+  background-color: #fff2f2 !important;
+  color: #b82525 !important;
+}
+
+/* Yeşil Kaydet Butonu */
+.btn-kaydet {
+  align-self: flex-start;
+  background-color: var(--renk-ana);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: var(--kose);
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+
+.btn-kaydet:hover {
+  opacity: 0.9;
+}

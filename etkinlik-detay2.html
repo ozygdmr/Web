@@ -1,29 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 2026 - Etkinlik Detayı</title>
+  <link rel="stylesheet" href="etkinlik-detay-style.css">
 </head>
-<header>
-    <h1>Lab 2026</h1>
-   
-</header>
-<nav>
-     <a href="/index.html">Anasayfa </a><a href="/etkinlikler.html">Etkinlikler </a><a href="/etkinlik-ekle.html">Ekle</a>
-</nav>
-<main>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHI396v9PJmfC0X1cHAGvJgvVykjkJDKdcKiN5AUSHg&s" width="400">
-    <p>Tarih</p>
-    <p>
-        <time datetime="2026-10-15">15 Ekim 2026,14:00</time>
-    </p>
-    <p>Yer</p>
-    <p>Laboratuvar 101</p>
-    <p>Kontenjan</p>
-    <p>120</p>
-</main>
-<footer>
-    <a href="/etkinlikler.html">Listeye Dön</a>
-</footer>
+<body>
+
+  <div class="kart">
+    <!-- Üst Başlık ve Navigasyon Menüsü -->
+    <header>
+      <h1>Lab 2026</h1>
+      <nav>
+        <a href="/index.html">Anasayfa</a>
+        <a href="/etkinlikler.html">Etkinlikler</a>
+        <a href="/etkinlik-ekle.html">Ekle</a>
+      </nav>
+    </header>
+
+    <!-- Ana İçerik Alanı (Afiş + Künye) -->
+    <main>
+      <!-- Sol Taraf: Afiş Görseli -->
+      <figure class="afis-kutusu">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHI396v9PJmfC0X1cHAGvJgvVykjkJDKdcKiN5AUSHg&s" alt="Lab 2026 Afişi">
+        <figcaption>Şekil 1: etkinlik afişi</figcaption>
+      </figure>
+
+      <!-- Sağ Taraf: Künye (dl) ve Açıklama -->
+      <div class="kunye-alani">
+        <dl>
+          <dt>Tarih</dt>
+          <dd><time datetime="2026-10-15">15 Ekim 2026, 14:00</time></dd>
+
+          <dt>Yer</dt>
+          <dd>Laboratuvar 101</dd>
+
+          <dt>Kontenjan</dt>
+          <dd>120</dd>
+        </dl>
+
+        <p class="aciklama">Laboratuvar çalışması ve deneysel uygulama etkinliği.</p>
+
+        <footer>
+          <a href="/etkinlikler.html" class="geri-link">&larr; Listeye Dön</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+</body>
 </html>

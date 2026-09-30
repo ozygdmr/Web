@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kariyer Günleri 2026 - Etkinlik Detayı</title>
+  <link rel="stylesheet" href="etkinlik-detay-style.css">
 </head>
-<header>
-    <h1>Web Topluluğu</h1>
-   
-</header>
-<nav>
-     <a href="/index.html">Anasayfa </a><a href="/etkinlikler.html">Etkinlikler </a><a href="/etkinlik-ekle.html">Ekle</a>
-</nav>
-<main>
-    <img src="https://www.kriptoetkinlik.com/event_images/8/ba61ca6cecbfcd2f62d54166242b0f64.jpeg" width="400">
-    <p>Tarih</p>
-    <p>
-        <time datetime="2026-09-25">25 Eylül 2026,14:00</time>
-    </p>
-    <p>Yer</p>
-    <p>A Blok Konferans Salonu</p>
-    <p>Kontenjan</p>
-    <p>120</p>
-</main>
-<footer>
-    <a href="/etkinlikler.html">Listeye Dön</a>
-</footer>
+<body>
+
+  <div class="kart">
+    <!-- Üst Başlık ve Navigasyon Menüsü -->
+    <header>
+      <h1>Kariyer Günleri 2026</h1>
+      <nav>
+        <a href="/index.html">Ana Sayfa</a>
+        <a href="/etkinlikler.html">Etkinlikler</a>
+        <a href="/etkinlik-ekle.html">Ekle</a>
+        <a href="#">Güncelle</a>
+      </nav>
+    </header>
+
+    <!-- Ana İçerik Alanı (Afiş + Künye) -->
+    <main>
+      <!-- Sol Taraf: Afiş Görseli -->
+      <figure class="afis-kutusu">
+        <img src="https://www.kriptoetkinlik.com/event_images/8/ba61ca6cecbfcd2f62d54166242b0f64.jpeg" alt="Etkinlik Afişi">
+        <figcaption>Şekil 1: etkinlik afişi</figcaption>
+      </figure>
+
+      <!-- Sağ Taraf: Künye (dl) ve Açıklama -->
+      <div class="kunye-alani">
+        <dl>
+          <dt>Tarih</dt>
+          <dd><time datetime="2026-09-25">12 Ekim, 14:00</time></dd>
+
+          <dt>Yer</dt>
+          <dd>A Blok Salon</dd>
+
+          <dt>Kategori</dt>
+          <dd>Seminer</dd>
+
+          <dt>Kontenjan</dt>
+          <dd>120</dd>
+        </dl>
+
+        <p class="aciklama">Mezunlarla kariyer söyleşileri ve şirket standları.</p>
+
+        <footer>
+          <a href="/etkinlikler.html" class="geri-link">&larr; Listeye dön</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+</body>
 </html>

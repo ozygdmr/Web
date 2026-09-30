@@ -1,0 +1,170 @@
+/* Yiğit Özdemir — 2416501838 */
+:root {
+  --no: 2416501838;
+  --ton: mod(var(--no), 360); /* 2416501838 % 360 = ~118 deg (Dinamik Yeşil Tonu) */
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --renk-afis-bg: hsl(var(--ton) 30% 83%);
+  --font: "system-ui", sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #111a2e; /* Sayfa dışı koyu lacivert arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Kapsayıcı Beyaz/Açık Yeşil Kart */
+.kart {
+  background-color: var(--renk-zemin);
+  width: 100%;
+  max-width: 580px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Header ve Navigasyon Yapısı */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 1.2rem 1.5rem;
+}
+
+header h1 {
+  text-align: left; /* Görsele uygun olarak sola hizalandı */
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-left: 0; /* Boşluk gap ile sağlandı */
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+/* Main Bölümü (Afiş solda, Künye sağda) */
+main {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Sol Taraf: Afiş */
+.afis-kutusu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.afis-kutusu img {
+  width: 100%;
+  height: 140px;            /* Taşmayı önlemek için sabit yükseklik */
+  object-fit: contain;      /* Resmi kırpmadan/sündürmeden kutuya sığdırır */
+  background-color: var(--renk-afis-bg); /* Tasarımdaki açık yeşil arka plan */
+  border-radius: var(--kose);
+  display: block;
+}
+
+.afis-gorsel {
+  background-color: var(--renk-afis-bg);
+  height: 140px;
+  border-radius: var(--kose);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2b3a2b;
+  font-size: 0.95rem;
+}
+
+.afis-gorsel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--kose);
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+/* Sağ Taraf: Künye Yapısı (dl) */
+.kunye-alani {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  border: 1px solid #d0d5d0;
+  border-radius: var(--kose);
+  padding: 0.8rem;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+}
+
+dt {
+  font-weight: bold;
+  color: #111;
+}
+
+dd {
+  color: #333;
+}
+
+.aciklama {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #222;
+}
+
+
+footer {
+  margin-top: 0.8rem;
+}
+
+.geri-link {
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.geri-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobil Uyum: Ekran küçüldüğünde alt alta geçer */
+@media (max-width: 550px) {
+  main {
+    flex-direction: column;
+  }
+}

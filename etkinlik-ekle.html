@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlik Ekle</title>
+  <link rel="stylesheet" href="etkinlik-ekle-style.css">
 </head>
-<header>
-    <h1>Etkinlik Ekle</h1>
-   
-</header>
-<nav>
-     <a href="/index.html">Anasayfa </a><a href="/etkinlikler.html">Etkinlikler </a><a href="/etkinlik-ekle.html">Ekle</a>
-</nav>
-<main>
-    <form>
-        <label>Etkinlik Adı</label>
-        <p><input type="text"></input></p>
-        <label>Kategori</label>
-        <p><select>
-<option>Seminer</option>
-<option>Labaratuvar</option>
-<option>Toplantı</option>
+<body>
 
-        </select></p>
+  <div class="kapsayici-kart">
+    <!-- Üst Header Bölümü -->
+    <header>
+      <h1>Etkinlik Ekle</h1>
+      <nav>
+        <a href="/index.html">Ana Sayfa</a>
+        <a href="/etkinlikler.html">Etkinlikler</a>
+        <a href="/etkinlik-ekle.html">Ekle</a>
+        <a href="#">Güncelle</a>
+      </nav>
+    </header>
 
-        <input type="datetime-local">
-        <label>Açıklama</label>
-        <p><textarea></textarea></p>
-        <button>Kaydet</button>
-    </form>
-</main>
+    <!-- Form Alanı -->
+    <main>
+      <form>
+        <div class="form-grup">
+          <label for="etkinlik-adi">Etkinlik adı</label>
+          <input type="text" id="etkinlik-adi">
+        </div>
+
+        <div class="form-grup">
+          <label for="kategori">Kategori</label>
+          <select id="kategori">
+            <option value="">Seçiniz</option>
+            <option value="seminer">Seminer</option>
+            <option value="laboratuvar">Laboratuvar</option>
+            <option value="toplanti">Toplantı</option>
+          </select>
+        </div>
+
+        <!-- Hatalı / Boş Bırakılan Alan Örneği (Görseldeki kırmızı uyarı) -->
+        <div class="form-grup">
+          <label for="tarih">Tarih</label>
+          <input type="text" id="tarih" class="hatali-giris" value="boş bırakıldı" readonly>
+        </div>
+
+        <div class="form-grup">
+          <label for="aciklama">Açıklama</label>
+          <textarea id="aciklama" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn-kaydet">Kaydet</button>
+      </form>
+    </main>
+  </div>
+
+</body>
 </html>

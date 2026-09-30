@@ -1,0 +1,141 @@
+/* Yiğit Özdemir — 2416501838 */
+:root {
+  --no: 2416501838;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "system-ui", sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #111a2e; /* Sayfa dışı koyu lacivert */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Ana Kart Kapsayıcısı */
+.kapsayici-kart {
+  background-color: var(--renk-zemin);
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Yeşil Header */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 1.2rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Alanı */
+main {
+  padding: 1.5rem;
+}
+
+.spot-yazi {
+  font-size: 0.95rem;
+  color: #222;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+main h2 {
+  font-size: 1.15rem;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+/* Sadece 2 Etkinlik İçin Yan Yana Grid */
+.yaklasan-etkinlikler {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Birebir eşit 2 sütun */
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.etkinlik-karti {
+  background-color: #ffffff;
+  border: 1px solid #e0e5e0;
+  border-radius: var(--kose);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.etkinlik-karti h3 {
+  font-size: 1.05rem;
+  color: #111;
+}
+
+.etkinlik-karti .tarih {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.detay-link {
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+.detay-link:hover {
+  text-decoration: underline;
+}
+
+/* Alt Tüm Etkinlikleri Gör Linki */
+.tum-etkinlikler-link {
+  display: inline-block;
+  color: var(--renk-ana);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.tum-etkinlikler-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobil Uyum */
+@media (max-width: 480px) {
+  .yaklasan-etkinlikler {
+    grid-template-columns: 1fr;
+  }
+}
