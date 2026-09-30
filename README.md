@@ -1,1 +1,1 @@
-https://deneme-nine-kohl.vercel.app
+https://deneme-y6v6.vercel.app
