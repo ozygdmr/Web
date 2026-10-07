@@ -8,7 +8,7 @@ export const events = [
     location: "A Blok Konferans Salonu",
     description: "Mezunlarla kariyer söyleşileri ve şirket standları.",
     capacity: 120,
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80"
   },
   {
     id: "event-2",
@@ -19,7 +19,7 @@ export const events = [
     location: "Bilgisayar Laboratuvarı 2",
     description: "Arduino ile çizgi izleyen robot yapımı, başlangıç seviyesi.",
     capacity: 25,
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&auto=format&fit=crop&q=80"
   },
   {
     id: "event-3",
@@ -30,7 +30,7 @@ export const events = [
     location: "B Blok Amfi 1",
     description: "Sektörden bir uzmanla güvenlik kariyeri üzerine sohbet.",
     capacity: 50,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80"
   },
   {
     id: "event-4",
@@ -41,7 +41,7 @@ export const events = [
     location: "Bilgisayar Laboratuvarı 1",
     description: "HTML ve CSS ile ilk kişisel sayfanı yap.",
     capacity: 30,
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop&q=80"
   },
   {
     id: "event-5",
@@ -52,7 +52,7 @@ export const events = [
     location: "A Blok Konferans Salonu",
     description: "Mobil uygulama ekosistemine giriş ve trendler.",
     capacity: 90,
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80"
   },
   {
     id: "event-6",
@@ -63,6 +63,6 @@ export const events = [
     location: "B Blok Amfi 2",
     description: "Genç girişimcilerle tanışma ve soru-cevap oturumu.",
     capacity: 80,
-    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&auto=format&fit=crop&q=80"
   }
 ];

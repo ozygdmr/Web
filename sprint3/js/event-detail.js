@@ -28,12 +28,10 @@ if (!event) {
   if (container) {
     container.innerHTML = `
       <div class="detay-grid">
-        // js/event-detail.js içinde container.innerHTML kısmında:
-
-<figure class="afis-kutusu">
-  <img src="${event.image}" alt="${event.title} Afişi">
-  <figcaption>${event.title} afişi</figcaption>
-</figure>
+        <figure class="afis-kutusu">
+          <img src="${event.image}" alt="${event.title} Afişi">
+          <figcaption>${event.title} afişi</figcaption>
+        </figure>
 
         <div class="kunye-alani">
           <h3>Etkinlik Künyesi</h3>
