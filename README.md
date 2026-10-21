@@ -1,2 +1,1 @@
-
-https://deneme-sprint3-2mop.vercel.app
+https://web-o3m5.vercel.app
