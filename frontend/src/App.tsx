@@ -1,120 +1,80 @@
-import { useState, useEffect } from "react";
+import { Routes, Route, useLocation, matchPath } from "react-router-dom";
 import "./App.css";
 
-import { Header } from "./components/layout/Header";
 import { Navigation } from "./components/layout/Navigation";
 import { Footer } from "./components/layout/Footer";
+import { useEvents } from "./context/EventsContext";
+import { findEventById } from "./utils/filter-events";
 
-import { EventList } from "./components/events/EventList";
-import { EventFilter } from "./components/events/EventFilter";
-import { EventDetail } from "./components/events/EventDetail";
-import { EventForm } from "./components/forms/EventForm";
+import HomePage from "./pages/HomePage";
+import EventsPage from "./pages/EventsPage";
+import EventDetailPage from "./pages/EventDetailPage";
+import AdminPage from "./pages/AdminPage";
+import AddEventPage from "./pages/AddEventPage";
+import EditEventPage from "./pages/EditEventPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
-import { events } from "./data/events";
-import type {Category } from "./types/campus-event";
-import { searchEvents, filterByCategory, findEventById } from "./utils/filter-events";
-import type { PageName } from "./types/pages";
+function AppHeader() {
+  const location = useLocation();
+  const { events } = useEvents();
 
-function App() {
-  const [page, setPage] = useState<PageName>("home");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [searchText, setSearchText] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<Category | "">("");
+  // Aktif adrese göre başlığı belirleyen yardımcı fonksiyon
+  const getHeaderTitle = (): string => {
+    const path = location.pathname;
 
-  const go = (next: PageName, id: string | null = null) => {
-    setPage(next);
-    setSelectedId(id);
-  };
+    // /events/:id detay kontrolü
+    const eventDetailMatch = matchPath("/events/:id", path);
+    if (eventDetailMatch) {
+      const id = eventDetailMatch.params.id;
+      const found = id ? findEventById(events, id) : undefined;
+      return found ? found.title : "Etkinlik Detayı";
+    }
 
-  const selected = selectedId ? findEventById(events, selectedId) : undefined;
+    // /admin/:id/edit güncelleme kontrolü
+    const editMatch = matchPath("/admin/:id/edit", path);
+    if (editMatch) {
+      return "Etkinlik Güncelle";
+    }
 
-  // Navigasyon çubuğu ve Tab için dinamik başlığı tek noktadan alıyoruz
-  const getPageTitle = (): string => {
-    if (page === "events") return "Tüm Etkinlikler";
-    if (page === "add") return "Etkinlik Ekle";
-    if (page === "update") return "Etkinlik Güncelle";
-    if (page === "detail") return selected ? selected.title : "Etkinlik Detayı";
+    if (path === "/events") return "Tüm Etkinlikler";
+    if (path === "/admin") return "Etkinlik Yönetimi";
+    if (path === "/admin/new") return "Etkinlik Ekle";
+    if (path === "/login") return "Giriş Yap";
+    if (path === "/register") return "Kayıt Ol";
+    if (path === "/forgot-password") return "Şifremi Unuttum";
+
     return "Kampüs Etkinlikleri";
   };
 
-  // Tarayıcı sekmesi (Tab) başlığını güncelleme
-  useEffect(() => {
-    const currentTitle = getPageTitle();
-    document.title = page === "home" 
-      ? "Kampüs Etkinlikleri - Ana Sayfa" 
-      : `Kampüs Etkinlikleri - ${currentTitle}`;
-  }, [page, selected]);
+  return (
+    <header>
+      <h1>{getHeaderTitle()}</h1>
+      <Navigation />
+    </header>
+  );
+}
 
-  const upcoming = [...events].sort((a, b) => {
-    const [d1, m1, y1] = a.date.split("-").map(Number);
-    const [d2, m2, y2] = b.date.split("-").map(Number);
-    return new Date(y1, m1 - 1, d1).getTime() - new Date(y2, m2 - 1, d2).getTime();
-  }).slice(0, 2);
-
-  const categories: Category[] = [...new Set(events.map((e) => e.category))];
-  const filtered = filterByCategory(searchEvents(events, searchText), selectedCategory);
-
+function App() {
   return (
     <div className="kapsayici-kart">
-      {/* ÜST NAVİGASYON ÇUBUĞU: Detaya girilince başlık otomatik değişir */}
-      <header>
-        <h1>{getPageTitle()}</h1>
-        <Navigation current={page} onNavigate={go} />
-      </header>
+      <AppHeader />
 
       <main>
-        {page === "home" && (
-          <Header title="Kampüs Etkinlikleri" text="Fakültedeki seminer, atölye ve söyleşileri tek yerden takip edin." />
-        )}
-
-        {page === "home" && (
-          <>
-            <h2>Yaklaşan 2 Etkinlik</h2>
-            <EventList events={upcoming} onShowDetail={(id) => go("detail", id)} />
-            <a href="#events" className="tum-etkinlikler-link" onClick={(e) => { e.preventDefault(); go("events"); }}>
-              Tüm etkinlikleri gör &rarr;
-            </a>
-          </>
-        )}
-
-        {page === "events" && (
-          <>
-            <EventFilter
-              searchText={searchText}
-              selectedCategory={selectedCategory}
-              categories={categories}
-              onSearchChange={setSearchText}
-              onCategoryChange={setSelectedCategory}
-            />
-            <EventList
-              events={filtered}
-              onShowDetail={(id) => go("detail", id)}
-              emptyText="Aramanıza uygun etkinlik bulunamadı."
-            />
-          </>
-        )}
-
-        {page === "detail" && (
-          selected ? (
-            <EventDetail event={selected} onBack={() => go("events")} onEdit={(id) => go("update", id)} />
-          ) : (
-            <div className="hata-kutusu">
-              <h2>Etkinlik bulunamadı</h2>
-              <p>"{selectedId || "Belirtilmemiş"}" numaralı bir etkinlik yok.</p>
-              <a href="#events" className="btn-aksiyon" style={{ marginTop: "1rem" }} onClick={(e) => { e.preventDefault(); go("events"); }}>
-                &larr; Listeye dön
-              </a>
-            </div>
-          )
-        )}
-
-        {(page === "add" || page === "update") && (
-          <EventForm
-            categories={categories}
-            buttonText={page === "add" ? "Kaydet" : "Güncelle"}
-            onSubmit={() => window.scrollTo(0, 0)}
-          />
-        )}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:id" element={<EventDetailPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/new" element={<AddEventPage />} />
+          <Route path="/admin/:id/edit" element={<EditEventPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
 
       <Footer />

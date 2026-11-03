@@ -24,10 +24,16 @@ body {
   padding: 2rem 1rem;
 }
 
-.kapsayici-kart {
-  background-color: var(--renk-zemin);
+#root {
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
+}
+
+.kapsayici-kart {
+  background-color: #ffffff;
+  color: #222222;
+  width: 100%;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
@@ -129,6 +135,12 @@ main h2 {
   gap: 1.2rem;
 }
 
+@media (max-width: 768px) {
+  .etkinlikler-izgara {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* KART TASARIMI */
 .etkinlik-karti {
   background-color: #ffffff;
@@ -172,6 +184,7 @@ main h2 {
   font-weight: bold;
   font-size: 0.95rem;
   display: inline-block;
+  margin-top: 0.5rem;
 }
 
 .detay-link:hover,
@@ -260,12 +273,14 @@ main h2 {
 
 /* FORM SAYFALARI & HATA YÖNETİMİ */
 .etkinlik-formu {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
 .form-grup {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -279,96 +294,20 @@ main h2 {
 .form-grup input,
 .form-grup select,
 .form-grup textarea {
-  width: 100%;
+  width: 100% !important;
+  box-sizing: border-box;
   padding: 0.75rem 0.9rem;
-  border: 1px solid #b2c2b2;
+  border: 1px solid #b2c2b2 !important;
   border-radius: var(--kose);
-  background-color: #ffffff;
+  background-color: #ffffff !important;
+  color: #111111 !important;
   font-family: inherit;
   font-size: 1rem;
   outline: none;
+  opacity: 1 !important;
 }
 
-/* Hata Vurgusu: aria-invalid="true" */
 input[aria-invalid="true"],
 select[aria-invalid="true"],
 textarea[aria-invalid="true"] {
-  border-color: #d93838 !important;
-  background-color: #fff2f2 !important;
-}
-
-.hata-metni {
-  color: #b82525;
-  font-size: 0.85rem;
-  min-height: 1.1rem;
-}
-
-.btn-kaydet {
-  align-self: flex-start;
-  background-color: var(--renk-ana);
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.8rem;
-  font-size: 1rem;
-}
-/* Input ve Form Alanlarını Belirginleştirme */
-.etkinlik-formu input,
-.etkinlik-formu select,
-.etkinlik-formu textarea,
-.filtre-kutusu input,
-.filtre-kutusu select {
-  background-color: #ffffff !important;
-  color: #111111 !important;
-  border: 1px solid #b2c2b2 !important;
-  opacity: 1 !important;
-}
-
-/* Placeholder (İpucu) Renkleri */
-.etkinlik-formu input::placeholder,
-.etkinlik-formu textarea::placeholder,
-.filtre-kutusu input::placeholder {
-  color: #777777 !important;
-  opacity: 1 !important;
-}
-
-/* Sayfa arka plan rengi ve yazı rengi netleştirme */
-.kapsayici-kart {
-  background-color: #ffffff;
-  color: #222222;
-}
-/* Kapsayıcı ve Form Genişliğini Düzeltme */
-#root {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.kapsayici-kart {
-  width: 100%;
-}
-
-.etkinlik-formu {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.form-grup {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.form-grup input,
-.form-grup select,
-.form-grup textarea {
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
-.btn-kaydet {
-  align-self: flex-start;
-  cursor: pointer;
-}
+  border-color: #

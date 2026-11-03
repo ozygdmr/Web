@@ -1,32 +1,24 @@
-import type { PageName } from "../../types/pages";
+import { NavLink } from "react-router-dom";
 
-interface NavigationProps {
-  current: PageName;
-  onNavigate: (page: PageName) => void;
-}
-
-// Menü dizisini slayttaki isteğe uygun olarak buraya taşıyoruz
-const navItems: { name: PageName; label: string }[] = [
-  { name: "home", label: "Ana Sayfa" },
-  { name: "events", label: "Etkinlikler" },
-  { name: "add", label: "Ekle" },
+const menu = [
+  { to: "/", label: "Ana Sayfa" },
+  { to: "/events", label: "Etkinlikler" },
+  { to: "/admin", label: "Yönetim" },
+  { to: "/login", label: "Giriş" },
 ];
 
-export function Navigation({ current, onNavigate }: NavigationProps) {
+export function Navigation() {
   return (
     <nav>
-      {navItems.map((item) => (
-        <a
-          key={item.name}
-          href={`#${item.name}`}
-          className={current === item.name ? "aktif" : ""}
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate(item.name);
-          }}
+      {menu.map((item) => (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          end={item.to === "/"}
+          className={({ isActive }) => (isActive ? "aktif" : "")}
         >
           {item.label}
-        </a>
+        </NavLink>
       ))}
     </nav>
   );

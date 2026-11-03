@@ -1,15 +1,13 @@
-import type { CampusEvent } from "../../types/campus-event";
+import type{ CampusEvent } from "../../types/campus-event";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
   events: CampusEvent[];
-  onShowDetail: (id: string) => void;
   emptyText?: string;
 }
 
 export function EventList({
   events,
-  onShowDetail,
   emptyText = "Etkinlik bulunamadı.",
 }: EventListProps) {
   if (events.length === 0) {
@@ -19,11 +17,7 @@ export function EventList({
   return (
     <div className="etkinlikler-izgara">
       {events.map((event) => (
-        <EventCard
-          key={event.id}
-          event={event}
-          onShowDetail={onShowDetail}
-        />
+        <EventCard key={event.id} event={event} />
       ))}
     </div>
   );

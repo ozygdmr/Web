@@ -1,11 +1,9 @@
-// src/components/layout/Header.tsx
-
 interface HeaderProps {
-  title: string;
+  title?: string;
   text?: string;
 }
 
-export function Header({ title, text }: HeaderProps) {
+export function Header({ title = "Kampüs Etkinlikleri", text }: HeaderProps) {
   return (
     <header className="site-baslik">
       <h1>{title}</h1>
