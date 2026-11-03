@@ -310,4 +310,108 @@ main h2 {
 input[aria-invalid="true"],
 select[aria-invalid="true"],
 textarea[aria-invalid="true"] {
-  border-color: #
+  border-color: #d93838 !important;
+  background-color: #fff2f2 !important;
+}
+
+.hata-metni {
+  color: #b82525;
+  font-size: 0.85rem;
+  min-height: 1.1rem;
+}
+
+.btn-kaydet {
+  align-self: flex-start;
+  background-color: var(--renk-ana);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  border-radius: var(--kose);
+  cursor: pointer;
+}
+
+footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #e0e5e0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ADMIN TABLO STİLLERİ */
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.tablo th {
+  background-color: var(--renk-ana);
+  color: #ffffff;
+  text-align: left;
+  padding: 0.8rem 1rem;
+}
+
+.tablo td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e0e5e0;
+}
+
+.islemler {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.buton-sil {
+  background-color: #d93838;
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--kose);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buton-sil:hover {
+  background-color: #b82525;
+}
+
+/* RESPONSIVE TABLO -> MOBİL KART DÖNÜŞÜMÜ */
+@media (max-width: 699px) {
+  .tablo thead {
+    display: none;
+  }
+  .tablo, .tablo tbody, .tablo tr, .tablo td {
+    display: block;
+    width: 100%;
+  }
+  .tablo tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e0e5e0;
+    border-radius: var(--kose);
+    padding: 0.5rem;
+    background-color: #ffffff;
+  }
+  .tablo td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .tablo td:last-child {
+    border-bottom: none;
+  }
+  .tablo td[data-baslik]::before {
+    content: attr(data-baslik) ": ";
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    text-align: left;
+    font-weight: bold;
+  }
+  .tablo td.islemler {
+    justify-content: flex-end;
+  }
+}
