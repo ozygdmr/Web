@@ -2,13 +2,14 @@
 
 ## Endpoints
 
-| Method     | Endpoint      | Amaç          | Başarılı | Hata     | Durum     |
-| :--------- | :------------ | :------------ | :------- | :------- | :-------- |
-| **GET**    | `/events`     | Listeyi getir | 200      | —        | Bu sprint |
-| **GET**    | `/events/:id` | Tek etkinlik  | 200      | 404      | Bu sprint |
-| **POST**   | `/events`     | Yeni etkinlik | 201      | 400      | Bu sprint |
-| **PATCH**  | `/events/:id` | Güncelle      | 200      | 400, 404 | Sprint 9  |
-| **DELETE** | `/events/:id` | Sil           | 204      | 404      | Sprint 9  |
+| Method     | Endpoint                    | Amaç                  | Başarılı | Hata     | Durum     |
+| :--------- | :-------------------------- | :-------------------- | :------- | :------- | :-------- |
+| **GET**    | `/events?search=&category=` | Filtreli listeyi getir | 200      | —        | Çalışıyor |
+| **GET**    | `/events/upcoming`          | Yaklaşan etkinlikler  | 200      | —        | Çalışıyor |
+| **GET**    | `/events/:id`               | Tek etkinlik          | 200      | 404      | Çalışıyor |
+| **POST**   | `/events`                   | Yeni etkinlik         | 201      | 400      | Çalışıyor |
+| **PATCH**  | `/events/:id`               | Güncelle              | 200      | 400, 404 | Çalışıyor |
+| **DELETE** | `/events/:id`               | Sil                   | 204      | 404      | Çalışıyor |
 
 ## Status Code'lar
 
